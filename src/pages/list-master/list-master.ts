@@ -11,44 +11,23 @@ import { Items } from '../../providers/providers';
 })
 export class ListMasterPage {
   currentItems: Item[];
-
+  videos = [
+    { img:"../../assets/img/splashbg.png", type: "Trivia", description: "Facts about Dhoni that you may not have heard of but not miss if you are a fan" },
+    { img:"../../assets/img/splashbg.png", type: "Analysis", description: "An analysis of the top 11 players who make IPL worth watching for all cricket fans" }
+    ];
   constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
     this.currentItems = this.items.query();
   }
 
-  /**
-   * The view loaded, let's query our items for the list
-   */
-  ionViewDidLoad() {
-  }
-
-  /**
-   * Prompt the user to add a new item. This shows our ItemCreatePage in a
-   * modal and then adds the new item to our data source if the user created one.
-   */
-  addItem() {
-    let addModal = this.modalCtrl.create('ItemCreatePage');
-    addModal.onDidDismiss(item => {
-      if (item) {
-        this.items.add(item);
-      }
-    })
-    addModal.present();
-  }
-
-  /**
-   * Delete an item from the list of items.
-   */
-  deleteItem(item) {
-    this.items.delete(item);
-  }
-
-  /**
-   * Navigate to the detail page for this item.
-   */
   openItem(item: Item) {
     this.navCtrl.push('ItemDetailPage', {
       item: item
     });
+  }
+  showLiveMatches(){
+    this.navCtrl.push('LiveMatchesPage')
+  }
+  openSettings(){
+    this.navCtrl.push('SettingsPage')
   }
 }

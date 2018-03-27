@@ -1,13 +1,32 @@
 <ion-content scroll="false">
-  <div class="splash-bg"></div>
-  <div class="splash-info">
-    <div class="splash-logo"></div>
-    <div class="splash-intro">
-      {{ 'WELCOME_INTRO' | translate }}
-    </div>
+
+  <div class="login-content">
+
+    <div text-center><h1>PROJECT LOGO</h1></div>
+
+    <div text-center class="sign-in-using">Sign-in using</div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button class="btn-circle c-f"><ion-icon class="icon-zoom" name="logo-facebook"></ion-icon></button>
+        </ion-col>
+        <ion-col>
+          <button class="btn-circle c-t "><ion-icon class="icon-zoom" name="logo-twitter"></ion-icon></button>
+        </ion-col>
+        <ion-col>
+          <button class="btn-circle c-g "><ion-icon class="icon-zoom" name="logo-google"></ion-icon></button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <hr class="hr-text" data-content="or">
+    <form name="loginForm" (submit)="doLogin()">
+    <input type="text" [(ngModel)]="account.email" name="email" placeholder="Email or Username">
+    <input type="password" [(ngModel)]="account.password" name="password" placeholder="Password">
+
+    <div class="submit-form"><button >Sign-in</button> or <a (click)="signup()">create an account</a></div>
+    </form>
   </div>
-  <div padding>
-    <button ion-button block (click)="signup()">{{ 'SIGNUP' | translate }}</button>
-    <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button>
-  </div>
+
 </ion-content>

@@ -1,0 +1,85 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>ACCOUNT SETTING</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openSettings()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+  <ion-item class="head-text" color="ion-item-backgroud" no-lines >
+    PROFILE
+  </ion-item>
+    <ion-item (click)="openAllUsers()">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3 >
+            <span class="profile-text-t1">HI AKSHAT!</span>
+          </ion-col>
+          <ion-col col-4 >
+            <span class="profile-text-t2">TOTAL HP: </span>
+            <span  class="profile-text-t1">29762</span>
+          </ion-col>
+          <ion-col col-5>
+            <span class="profile-text-t2">OVERALL RANK:</span>
+            <span class="profile-text-t1">321</span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item >
+      <ion-grid>
+        <ion-row class="profile-text-t1">
+          <ion-col>PERFORMANCE</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let performance of performances">
+          <ion-col align-self-center col-5 class="profile-text-t2">
+            {{performance.head}}
+          </ion-col>
+          <ion-col col-3 align-self-center text-center class="profile-text-t2">
+            HP: {{performance.hp}}
+          </ion-col>
+          <ion-col col-4 >
+            <rating end [max]="performance.rating" emptyIcon="★" iconClass="gold-star" [readonly]="true" [disabled]="false" [float]="true"></rating>
+            <rating end [max]="5-(performance.rating)"  emptyIcon="☆" iconClass="no-star" [readonly]="true" [disabled]="false" [float]="true"></rating>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-grid>
+        <ion-row class="profile-text-t1">
+          <ion-col>PERFORMANCE</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let trophy of trophies">
+          <ion-col col-5 align-self-center class="profile-text-t2">
+            {{trophy.head}}
+          </ion-col>
+          <ion-col col-3 align-self-center text-center class="profile-text-t2">
+            HP: {{trophy.hp}}
+          </ion-col>
+          <ion-col col-4 style="font-size:22px" >
+            <rating [max]="trophy.trophies[0]" fullIcon=" " emptyIcon=" " iconClass="fa fa-trophy bronze-trophy"[readonly]="true" [disabled]="false" [float]="true"></rating>
+            <rating [max]="trophy.trophies[1]" fullIcon=" " emptyIcon=" " iconClass="fa fa-trophy silver-trophy"[readonly]="true" [disabled]="false" [float]="true"></rating>
+            <rating [max]="trophy.trophies[2]" fullIcon=" " emptyIcon=" " iconClass="fa fa-trophy gold-trophy"[readonly]="true" [disabled]="false" [float]="true"></rating>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  <ion-item class="head-text" color="ion-item-backgroud" no-lines >
+    ACCOUNT ACCESS
+  </ion-item>
+    <ion-item class="head-text" (click)="logout()">
+      LOGOUT
+    </ion-item>
+    <ion-item class="head-text" no-lines>
+      FEEDBACK
+    </ion-item>
+  </ion-list>
+</ion-content>

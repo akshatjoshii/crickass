@@ -1,11 +1,16 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+<ion-title>HOME</ion-title>
+
 
     <ion-buttons end>
-      <button ion-button icon-only (click)="addItem()">
-        <ion-icon name="add"></ion-icon>
+      <button ion-button icon-only (click)="openSettings()">
+        <ion-icon name="settings"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -13,23 +18,100 @@
 </ion-header>
 
 <ion-content>
-
   <ion-list>
-    <ion-item-sliding *ngFor="let item of currentItems">
-      <button ion-item (click)="openItem(item)">
-        <ion-avatar item-start>
-          <img [src]="item.profilePic" />
-        </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <p>{{item.about}}</p>
-        <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
-      </button>
 
-      <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
-          {{ 'DELETE_BUTTON' | translate }}
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
+    <ion-item class="head-link" (click)="showLiveMatches()" color="ion-item-backgroud" no-lines detail-push>
+      LIVE MATCHES
+    </ion-item>
+
+    <ion-item no-lines>
+      <div class="live-match-head">Match 1 | T20 World Cup | 11 March 2018</div>
+      <div class="active">
+        <ion-grid no-padding>
+          <ion-row>
+            <ion-col col-5 no-padding>IND</ion-col>
+            <ion-col no-padding>149-7 (18.2)</ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div class="not-active">
+        <ion-grid no-padding>
+          <ion-row>
+            <ion-col col-5 no-padding>PAK </ion-col>
+            <ion-col no-padding>170-9 (20)</ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div class="runs-needed"> India need 171 to win</div>
+    </ion-item>
+
+    <ion-item class="head-link" (click)="showLiveMatches()" color="ion-item-backgroud" no-lines detail-push>
+      COMMENTARY
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col text-center col-2>
+            <div class="head-link">18.2</div>
+            <div class="color-circle">4</div>
+          </ion-col>
+          <ion-col col-7>
+            <div text-wrap class="head-link">
+              Hits it hard into the boundary. Four more to India. Bowler visibly upset.
+            </div>
+          </ion-col>
+          <ion-col col-3>
+            <i class="em em-laughing"></i>
+            <i class="em em-cry"></i>
+            <i class="em em-angry"></i>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item class="head-link" (click)="showLiveMatches()" color="ion-item-backgroud" no-lines detail-push>
+      INTERACT
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label class="head-link">Whose side are you on?</ion-label>
+      <ion-select no-padding>
+        <ion-option selected value="Ind">Ind</ion-option>
+        <ion-option value="Pak">Pak</ion-option>
+        <ion-option value="None">None</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col class="head-link" no-padding text-wrap col-10>
+            What will be India's score after 19th over?
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <button class="bet-button" item-end ion-button >Place Bet</button>
+    </ion-item>
+
+    <ion-item class="head-link" (click)="showLiveMatches()" color="ion-item-backgroud" no-lines detail-push>
+      RELEVENT VIDEOS
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-grid no-padding>
+        <ion-row padding-bottom *ngFor="let i of videos">
+          <ion-col col-4 >
+            <img src="{{i.img}}">
+          </ion-col>
+          <ion-col margin-left>
+            <div class="live-match-head">Type: {{i.type}}</div>
+            <div class="head-link" text-wrap>
+              {{i.description}}
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
   </ion-list>
 </ion-content>

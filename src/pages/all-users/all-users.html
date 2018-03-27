@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>RANKINGS</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openSettings()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item color="ion-item-backgroud" no-lines >
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col>USER</ion-col>
+          <ion-col text-center>HITPOINTS</ion-col>
+          <ion-col text-right>RANK</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item *ngFor="let person of personList">
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col text-uppercase>{{person.name}}</ion-col>
+          <ion-col text-center>{{person.hp}}</ion-col>
+          <ion-col text-right>{{person.rank}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>

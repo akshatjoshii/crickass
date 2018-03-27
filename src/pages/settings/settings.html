@@ -1,45 +1,77 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{ pageTitle }}</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>SETTINGS</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="saveSettings()">
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content>
+  <ion-list no-margin>
 
-  <form [formGroup]="form" *ngIf="settingsReady">
-    <ion-list *ngIf="page == 'main'">
-      <ion-item>
-        <ion-label>{{ 'SETTINGS_OPTION1' | translate }}</ion-label>
-        <ion-toggle formControlName="option1"></ion-toggle>
-      </ion-item>
+    <ion-item  class="head-font" color="ion-item-backgroud" no-lines >
+      ALERTS
+    </ion-item>
+    <form [formGroup]="todo" name="settingsForm" *ngIf="settingsReady">
+      <ion-list no-margin>
+        <ion-item padding-top>
+          <ion-label>WALL UPDATES</ion-label>
+          <ion-toggle [(ngModel)]="todo.option1" color="secondary" name="option1" formControlName="option1"></ion-toggle>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>{{ 'SETTINGS_OPTION2' | translate }}</ion-label>
-        <ion-input formControlName="option2"></ion-input>
-      </ion-item>
+        <ion-item no-lines>
+          <ion-label>MATCH NOTIFICATIONS</ion-label>
+          <ion-toggle [(ngModel)]="todo.option2" color="secondary" name="option2" formControlName="option2"></ion-toggle>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>{{ 'SETTINGS_OPTION3' | translate }}</ion-label>
-        <ion-select formControlName="option3">
-          <ion-option value="1" checked="true">1</ion-option>
-          <ion-option value="2">2</ion-option>
-          <ion-option value="3">3</ion-option>
-        </ion-select>
-      </ion-item>
+          <ion-item no-lines>
+            <ion-label class="sub-items">TOSS</ion-label>
+            <ion-toggle [(ngModel)]="todo.option3" *ngIf="todo.option2=='true'?todo.option3:todo.option2" color="secondary" name="option3" formControlName="option3"></ion-toggle>
+          </ion-item>
+          <ion-item no-lines>
+            <ion-label class="sub-items">INNINGS CHANGE</ion-label>
+            <ion-toggle [(ngModel)]="todo.option4" *ngIf="todo.option2=='true'?todo.option4:todo.option2" color="secondary" name="option4" formControlName="option4"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label class="sub-items">WICKET FALL</ion-label>
+            <ion-toggle [(ngModel)]="todo.option5" *ngIf="todo.option2=='true'?todo.option5:todo.option2" color="secondary" name="option5" formControlName="option5"></ion-toggle>
+          </ion-item>
 
-      <button ion-item [navPush]="subSettings" [navParams]="profileSettings">
-        {{ 'SETTINGS_PROFILE_BUTTON' | translate }}
-      </button>
-    </ion-list>
+        <ion-item no-lines>
+          <ion-label>COMMENT SECTION</ion-label>
+          <ion-toggle [(ngModel)]="todo.option6" color="secondary" name="option6" formControlName="option6"></ion-toggle>
+        </ion-item>
 
-    <ion-list *ngIf="page == 'profile'">
-      <ion-item>
-        <ion-label>{{ 'SETTINGS_OPTION4' | translate }}</ion-label>
-        <ion-input formControlName="option4"></ion-input>
-      </ion-item>
-    </ion-list>
-  </form>
+          <ion-item no-lines>
+            <ion-label class="sub-items">REPLIES</ion-label>
+            <ion-toggle [(ngModel)]="todo.option7" *ngIf="todo.option6=='true'?todo.option7:todo.option6" color="secondary" name="option7" formControlName="option7"></ion-toggle>
+          </ion-item>
+          <ion-item no-lines>
+            <ion-label class="sub-items">NEW TOPIC</ion-label>
+            <ion-toggle [(ngModel)]="todo.option8" *ngIf="todo.option6=='true'?todo.option8:todo.option6" color="secondary" name="option8" formControlName="option8"></ion-toggle>
+          </ion-item>
+
+      </ion-list>
+    </form>
+
+    <ion-item class="head-link" color="ion-item-backgroud" no-lines>
+      USERS
+    </ion-item>
+    <ion-item (click)="openAccountSettings()">
+      ACCOUNT SETTING
+    </ion-item>
+    <ion-item (click)="openFaq()">
+      FAQ
+    </ion-item>
+    <ion-item (click)="openAboutUs()" no-lines>
+      ABOUT US
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>

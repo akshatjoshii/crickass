@@ -1,3 +1,10 @@
 page-settings {
-
+  ion-label{
+    font-size: $font-size;
+    font-weight: $font-weight;
+  }
+ .sub-items {
+   padding-left: 16px;
+   color: gray;
+ }
 }

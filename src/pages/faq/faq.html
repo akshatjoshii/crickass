@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>FAQ</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openSettings()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item class="head-text-1" color="ion-item-backgroud" no-lines >
+     FAQ
+    </ion-item>
+    <ion-card padding-vertical padding-left no-lines *ngFor="let d of faqs; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+      <ion-card-header no-padding class="head-text-2">
+        <ion-icon padding-right color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+        {{d.title}}
+      </ion-card-header>
+      <ion-card-content no-padding padding-top class="faq-accordion" *ngIf="isGroupShown(i)">{{d.description}}</ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

@@ -1,3 +1,49 @@
 page-list-master {
-
+  .head-link{
+    font-size:15px;
+    font-weight: 600;
+    color: black!important;
+  }
+  .live-match-head{
+    color: gray;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  .active{
+    font-weight: 900;
+    font-size: 15px;
+    padding-top: 10px;
+  }
+  .not-active{
+    font-weight: 500;
+    font-size: 15px;
+    padding-top: 10px;
+  }
+  .runs-needed{
+    color: map_get($colors,primary);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 10px 0;
+  }
+  .bet-button{
+    background: #158db8;
+    border-radius:100px;
+    padding: 5px 20px !important;
+  }
+  .color-circle{
+    background: lawngreen;
+    color:white;
+    margin-top: 4px;
+    border-radius:100px;
+    padding: 3px 8px;
+    display: inline-block;
+  }
+  ion-select{
+    padding:3px 20px!important;
+    margin-right:8px;
+    background: #158db8;
+    border-radius:50px;
+    color: white;
+    font-size: 14px;
+  }
 }

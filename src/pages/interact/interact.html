@@ -1,0 +1,53 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>INTERACT</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openSettings()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item class="heavy-text" color="ion-item-backgroud" no-lines >
+      INTERACT
+    </ion-item>
+    <ion-item class="heavy-text">
+      HI AKSHAT!
+    </ion-item>
+    <ion-item *ngFor="let interact of interacts">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-5 align-self-center class="heavy-text">
+            {{interact.head}}
+          </ion-col>
+          <ion-col col-3 align-self-center class="profile-text-t2">
+            <rating [max]="interact.trophy[0]" fullIcon=" " emptyIcon=" " iconClass="fa fa-trophy bronze-trophy"[readonly]="true" [disabled]="false" [float]="true"></rating>
+            <rating [max]="interact.trophy[1]" fullIcon=" " emptyIcon=" " iconClass="fa fa-trophy silver-trophy"[readonly]="true" [disabled]="false" [float]="true"></rating>
+            <rating [max]="interact.trophy[2]" fullIcon=" " emptyIcon=" " iconClass="fa fa-trophy gold-trophy"[readonly]="true" [disabled]="false" [float]="true"></rating>
+          </ion-col>
+          <ion-col col-4 align-self-center text-center class="heavy-text">
+            <button ion-button color="danger">Play now!</button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="light-text-1">
+            {{interact.description}}
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let stat of interact.stats">
+          <ion-col class="light-text-2">
+            {{stat.name}}
+          </ion-col>
+          <ion-col class="light-text-1">
+            {{stat.value}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>

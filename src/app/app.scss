@@ -1,5 +1,17 @@
 // http://ionicframework.com/docs/v2/theming/
 
+.menu-bk-color{
+  background-color:  map-get($colors, primary);;
+}
+.menu-bk-color .item {
+  background-color: transparent;
+  border:none;
+  border-top: 1px solid;
+  border-bottom:2px solid;
+  border-color: #666;
+  color: white;
+}
+
 
 // App Global Sass
 // --------------------------------------------------

@@ -1,0 +1,36 @@
+page-account-settings {
+  .head-text{
+    font-size: $font-size;
+    font-weight: $font-weight;
+  }
+  .profile-text-t1{
+    font-size: 12px;
+    font-weight: $font-weight;
+    color: black;
+  }
+  .profile-text-t2{
+    font-size: 12px;
+    font-weight: $font-weight;
+    color: lightgray;
+  }
+  .gold-star{
+    color: #fad330;
+    font-size:18px;
+  }
+  .no-star{
+    font-size: 18px;
+    color: lightgray;
+  }
+  .gold-trophy{
+    color: #fad330;
+    padding-right: 10px;
+  }
+  .silver-trophy{
+    color: #b2b2b2;
+    padding-right: 10px;
+  }
+  .bronze-trophy{
+    color: #ceb375;
+    padding-right: 10px;
+  }
+}

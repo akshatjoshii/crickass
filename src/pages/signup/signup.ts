@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
-
+import {IonicPage, MenuController, NavController, ToastController} from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
+import {WelcomePage} from "../welcome/welcome";
 
 @IonicPage()
 @Component({
@@ -11,26 +10,21 @@ import { MainPage } from '../pages';
   templateUrl: 'signup.html'
 })
 export class SignupPage {
-  // The account fields for the login form.
-  // If you're using the username field with or without email, make
-  // sure to add it to the type
-  account: { name: string, email: string, password: string } = {
-    name: 'Test Human',
-    email: 'test@example.com',
-    password: 'test'
+
+  account: { name: string, email: string,username:string, password: string } = {
+    name: '',
+    email: '',
+    username: '',
+    password: ''
   };
 
   // Our translated text strings
   private signupErrorString: string;
 
   constructor(public navCtrl: NavController,
-    public user: User,
-    public toastCtrl: ToastController,
-    public translateService: TranslateService) {
-
-    this.translateService.get('SIGNUP_ERROR').subscribe((value) => {
-      this.signupErrorString = value;
-    })
+              public user: User,
+              public toastCtrl: ToastController,
+              public menuCtrl: MenuController) {
   }
 
   doSignup() {
@@ -49,5 +43,14 @@ export class SignupPage {
       });
       toast.present();
     });
+  }
+  signin(){
+    this.navCtrl.setRoot('WelcomePage')
+  }
+  ionViewWillEnter(){
+    this.menuCtrl.swipeEnable( false )
+  }
+  ionViewWillLeave(){
+    this.menuCtrl.swipeEnable( true )
   }
 }
