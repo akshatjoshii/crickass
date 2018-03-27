@@ -14,7 +14,7 @@
 To test this starter out, install the latest version of the Ionic CLI and run:
 
 ```bash
-ionic start mySuperApp super
+ionic serve
 ```
 
 ## Pages
