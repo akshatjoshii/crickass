@@ -8,7 +8,6 @@
 1. [Getting Started](#getting-started)
 2. [Pages](#pages)
 3. [Providers](#providers)
-4. [i18n](#i18n) (adding languages)
 
 ## <a name="getting-started"></a>Getting Started
 
